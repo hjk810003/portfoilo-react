@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import $ from "jquery";
+import "fullpage.js/vendors/scrolloverflow";
+import "fullpage.js";
+import "fullpage.js/dist/jquery.fullpage.min.css";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    $("#fullpage").fullpage({
+      scrollOverflow: true,
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="fullpage">
+      <div className="section fp-scrollable">second page</div>
+      <div className="section">
+        <div style={{ height: "200vh" }}>first page</div>
+      </div>
+      <div className="section">third page</div>
     </div>
   );
 }
